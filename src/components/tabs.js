@@ -62,8 +62,34 @@ const Tabs = (topics) =>
 
 const tabsAppender = (selector) => 
 {
+  //Axios.get points to the url
+  axios
+  .get("https://lambda-times-api.herokuapp.com/topics")
+
+  //If the promise is returned...
+  .then(res => 
+  {
+    //Query selector selects the selector and assigns to tabsShmabs
+    const tabsShmabs = document.querySelector(selector);
+
+    //Execute Tabs() function
+    tabsShmabs.appendChild(Tabs(res.data.topics));
+  })
+  
+  //If there is an error...
+  .catch(error => 
+  {
+    //...log the error message
+    console.log(error);
+  })
+
+  //.finally runs regardless of outcome
+  .finally(() => 
+  {
+    console.log("Finally, it's done!");
+  });
   
 }
 
-
+//Export statement
 export { Tabs, tabsAppender }

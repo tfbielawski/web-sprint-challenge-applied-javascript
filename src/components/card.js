@@ -129,36 +129,48 @@ const Card = (article) =>
 //Testing alternate method to apply cards
 const cardAppender = (selector) => 
 {
+  //Axios.get(s) the values from the url
   axios
   .get(`http://localhost:5000/api/articles`)
 
  .then(res => 
   {
-    //
-    const sel = document.querySelector(selector);
+    //Query selector calls the selector, assigns to selectorInfo
+    const selectorInfo = document.querySelector(selector);
+
+    //If the promise is returned...
     res.data.articles.bootstrap.forEach(item => 
     {
-     sel.appendChild(Card(item ))
+      //Append the card
+      selectorInfo.appendChild(Card(item));
     })
 
+    //If the promise is returned...
     res.data.articles.javascript.forEach(item => 
     {
-     sel.appendChild(Card(item ))
+      //Append the card
+      selectorInfo.appendChild(Card(item));
     })
 
+    //If the promise is returned...
     res.data.articles.jquery.forEach(item => 
-    {
-     sel.appendChild(Card(item ))
+    { 
+      //Append the card
+      selectorInfo.appendChild(Card(item));
     })     
 
-    res.data.articles.node.forEach(item  => 
+    //If the promise is returned...
+    res.data.articles.node.forEach(item => 
     {
-     sel.appendChild(Card(item ))
+      //Append the card
+      selectorInfo.appendChild(Card(item ));
     })
 
+    //If the promise is returned...
     res.data.articles.technology.forEach(item  => 
     {
-     sel.appendChild(Card(item ))
+      //Append the card
+      selectorInfo.appendChild(Card(item ));
     });  
  })
   //If there's an error

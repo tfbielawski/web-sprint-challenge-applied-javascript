@@ -69,11 +69,11 @@ const tabsAppender = (selector) =>
   //If the promise is returned...
   .then((res) => 
   {
-    //Apply the topics to arrayInfo
-    const arrayInfo = res.data.topics;
-
+    
     //Query selector selects the selector and assigns to tabs
     const tabs = document.querySelector(selector);
+    //Apply the topics to arrayInfo
+    const arrayInfo = res.data.topics;
 
     //Execute Tabs() function
     tabs.appendChild(Tabs(arrayInfo));

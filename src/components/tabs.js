@@ -1,5 +1,12 @@
-const Tabs = (topics) => {
-  // TASK 3
+/**
+ * Tom Bielawski
+ * Lambda School WEB45
+ * 2.1.5 web-sprint-challenge-applied-javascript
+ * 7/9/2021
+ * tabs.js
+ **/
+
+// TASK 3
   // ---------------------
   // Implement this function which takes an array of strings ("topics") as its only argument.
   // As an example, if the topics passed are ['javascript', 'bootstrap', 'technology']
@@ -13,16 +20,26 @@ const Tabs = (topics) => {
   //   <div class="tab">technology</div>
   // </div>
   //
+
+const Tabs = (topics) => 
+{
+  
 }
 
-const tabsAppender = (selector) => {
-  // TASK 4
+
+// TASK 4
   // ---------------------
   // Implement this function which takes a css selector as its only argument.
   // It should obtain topics from this endpoint: `http://localhost:5000/api/topics` (test it in Postman/HTTPie!).
   // Find the array of topics inside the response, and create the tabs using the Tabs component.
   // Append the tabs to the element in the DOM that matches the selector passed to the function.
   //
+
+
+const tabsAppender = (selector) => 
+{
+  
 }
+
 
 export { Tabs, tabsAppender }

@@ -1,5 +1,12 @@
-const Card = (article) => {
-  // TASK 5
+/**
+ * Tom Bielawski
+ * Lambda School WEB45
+ * 2.1.5 web-sprint-challenge-applied-javascript
+ * 7/9/2021
+ * cards.js
+ **/
+
+// TASK 5
   // ---------------------
   // Implement this function, which should return the markup you see below.
   // It takes as its only argument an "article" object with `headline`, `authorPhoto` and `authorName` properties.
@@ -17,6 +24,9 @@ const Card = (article) => {
   //   </div>
   // </div>
   //
+const Card = (article) => 
+{
+  
 }
 
 const cardAppender = (selector) => {

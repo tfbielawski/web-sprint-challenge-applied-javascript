@@ -95,37 +95,72 @@ const Card = (article) =>
   //
 
 
-//Function definition, selector parameter
+// //Function definition, selector parameter
+// const cardAppender = (selector) => 
+// {
+//   //Declare array, init with values
+//   const array = ['javascript', 'bootstrap', 'technology', 'jquery', 'node'];
+
+//   //Axios.get(s) the values from the url
+//   axios
+//   .get(`https://lambda-times-api.herokuapp.com/articles`)
+
+//   //If the promise returned...
+//   .then((res) => 
+//   {
+//     //...then log this
+//     console.log(res.data);
+
+//     //ForEach loop to iterate array of "tab-egories" 
+//     array.forEach(topic => 
+//     {
+//       //For each loop gets the (div-card) tab categories 
+//       res.data.articles[topic].forEach(element =>
+//       {
+//         //Creates a new div card element
+//         const newDiv = Card(element);
+
+//         //Appends the new card div card elements to the DOM
+//         document.querySelector(selector).appendChild(newDiv);
+//       });
+//     });
+//   })
+
+//Testing alternate method to apply cards
 const cardAppender = (selector) => 
 {
-  //Declare array, init with values
-  const array = ['javascript', 'bootstrap', 'technology', 'jquery', 'node'];
-
-  //Axios.get(s) the values from the url
   axios
-  .get(`https://lambda-times-api.herokuapp.com/articles`)
+  .get(`http://localhost:5000/api/articles`)
 
-  //If the promise returned...
-  .then((res) => 
+ .then(res => 
   {
-    //...then log this
-    console.log(res.data);
-
-    //ForEach loop to iterate array of "tab-egories" 
-    array.forEach(topic => 
+    //
+    const sel = document.querySelector(selector);
+    res.data.articles.bootstrap.forEach(item => 
     {
-      //For each loop gets the (div-card) tab categories 
-      res.data.articles[topic].forEach(element =>
-      {
-        //Creates a new div card element
-        const newDiv = Card(element);
+     sel.appendChild(Card(item ))
+    })
 
-        //Appends the new card div card elements to the DOM
-        document.querySelector(selector).appendChild(newDiv);
-      });
-    });
-  })
+    res.data.articles.javascript.forEach(item => 
+    {
+     sel.appendChild(Card(item ))
+    })
 
+    res.data.articles.jquery.forEach(item => 
+    {
+     sel.appendChild(Card(item ))
+    })     
+
+    res.data.articles.node.forEach(item  => 
+    {
+     sel.appendChild(Card(item ))
+    })
+
+    res.data.articles.technology.forEach(item  => 
+    {
+     sel.appendChild(Card(item ))
+    });  
+ })
   //If there's an error
   .catch((err) => 
   {

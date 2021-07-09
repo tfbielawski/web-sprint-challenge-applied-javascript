@@ -21,9 +21,33 @@
   // </div>
   //
 
+//Axios import statement
+import axios from "axios";
+
+
+//Function definition, parameter topics
 const Tabs = (topics) => 
 {
+  //Create div element, assign to divClassTopics 
+  const divClassTopics = document.createElement("div");
+  //Add topics to divClassTopics
+  divClassTopics.classList.add("topics");
+
+  //For each element in topics
+  topics.forEach(element => 
+  {
+    //create a div, assign to divTabs...
+    const divTabs = document.createElement("div");
+    //add each new element to "tab" class
+    divTabs.classList.add("tab");
+    //assign the text content to the tabs
+    divTabs.textContent = element;
+    //append to divClassTopics
+    divClassTopics.append(divTabs);
+  });
   
+  //Function return statement, return divClassTopics
+  return divClassTopics;
 }
 
 

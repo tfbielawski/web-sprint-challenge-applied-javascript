@@ -19,6 +19,7 @@
   //  </div>
   //
 
+//Define the function, pass in title, date, temp parameters
 const Header = (title, date, temp) => 
 {
   //---Create elements---//
@@ -59,7 +60,6 @@ const Header = (title, date, temp) =>
   //Function return statement, return divClassHeader
   return divClassHeader;
 
-
 }
 
 // TASK 2
@@ -77,7 +77,7 @@ const headerAppender = (selector) =>
   const sprintHeader = document.querySelector(selector);
     
   //Call the Header function, pass in arguments
-  sprintHeader.append(Header("Marine Corps Independence Day", "11 November, 1775", "1775 degrees"));
+  sprintHeader.append(Header("Marine Corps Times", "11 November, 1775", "1775 degrees"));
 }
 
 //Export statement

@@ -25,7 +25,7 @@
 import axios from "axios";
 
 
-//Function definition, parameter topics
+//Define the function, pass topics as parameter
 const Tabs = (topics) => 
 {
   //Create div element, assign to divClassTopics 
@@ -59,7 +59,7 @@ const Tabs = (topics) =>
   // Append the tabs to the element in the DOM that matches the selector passed to the function.
   //
 
-
+//Define the function, pass in selector
 const tabsAppender = (selector) => 
 {
   //Axios.get points to the url

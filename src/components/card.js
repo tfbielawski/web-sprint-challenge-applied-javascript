@@ -24,13 +24,70 @@
   //   </div>
   // </div>
   //
+
+//Axios import statement
+import axios from "axios";
+
+//Define the function, pass in article object as parameter
 const Card = (article) => 
 {
+  //---Create the elements--//
+  //Create div tag element, assign to divClassCard
+  const divClassCard = document.createElement("div"); 
+  //Create div tag element, assign to divClassHeadline
+  const divClassHeadline = document.createElement("div");
+  //Create div tag element, assign to divClassAuthor
+  const divClassAuthor = document.createElement("div"); 
+  //Create div tag element, assign to divClassImgSr
+  const divClassImgSrc = document.createElement("div");
+  //Create img tag element, assign to imgSrc
+  const imgSrc = document.createElement("img"); 
+  //Create span tag element, assign to authorNameSpan
+  const authorNameSpan = document.createElement("span");
+
+  //---Assign the classes---//
+  //Assign card class to divClassCard
+  divClassCard.classList.add("card");
+  //Assign headline class to divClassHeadline
+  divClassHeadline.classList.add("headline");
+  //Assign author class to divClassAuthor
+  divClassAuthor.classList.add("author");
+  //Assign img-container class to divClassImgSrc 
+  divClassImgSrc.classList.add("img-container"); 
+
+
+  //---Append children---//
+  //Append divClassHeadLine and divClassAuthor to divClassCard
+  divClassCard.appendChild(divClassHeadline);
+  divClassCard.appendChild(divClassAuthor);
+
+  //Append the divClassImgSrc, authorNameSpan to divClassAuthor
+  divClassAuthor.appendChild(divClassImgSrc);
+  divClassAuthor.appendChild(authorNameSpan);
+  //Append imgSrc to divClassImgSrc
+  divClassImgSrc.appendChild(imgSrc); 
+
+
+  //---Apply the properties---//
+  //Apply article.headline to divClasHeadline
+  divClassHeadline.textContent = `${article.headline}`; 
+  //Apply article.authorname to authorNameSpan
+  authorNameSpan.textContent = ` By ${article.authorName}`; 
+  //Assign the authorPhoto property to the img
+  imgSrc.setAttribute("src", `${article.authorPhoto}`); 
+
+  //---Event listener---//
+  //Event listener of type "click", function(), display text on click
+  divClassCard.addEventListener("click", () => { console.log(divClassHeadline); });
+
+   //Return statement, return divClassCard
+   return divClassCard;
+
+
   
 }
 
-const cardAppender = (selector) => {
-  // TASK 6
+// TASK 6
   // ---------------------
   // Implement this function that takes a css selector as its only argument.
   // It should obtain articles from this endpoint: `http://localhost:5000/api/articles` (test it in Postman/HTTPie!).
@@ -38,6 +95,12 @@ const cardAppender = (selector) => {
   // Create a card from each and every article object in the response, using the Card component.
   // Append each card to the element in the DOM that matches the selector passed to the function.
   //
+
+
+const cardAppender = (selector) => 
+{
+  
 }
 
+//Export statement
 export { Card, cardAppender }

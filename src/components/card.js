@@ -80,10 +80,8 @@ const Card = (article) =>
   //Event listener of type "click", function(), display text on click
   divClassCard.addEventListener("click", () => { console.log(divClassHeadline); });
 
-   //Return statement, return divClassCard
-   return divClassCard;
-
-
+  //Return statement, return divClassCard
+  return divClassCard;
   
 }
 
@@ -97,9 +95,41 @@ const Card = (article) =>
   //
 
 
+//Function definition, selector parameter
 const cardAppender = (selector) => 
 {
-  
+  //Declare array, init with values
+  const array = ['javascript', 'bootstrap', 'technology', 'jquery', 'node'];
+
+  //Axios.get(s) the values from the url
+  axios
+  .get(`https://lambda-times-api.herokuapp.com/articles`)
+
+  //If the promise returned...
+  .then((res) => 
+  {
+    //...then log this
+    console.log(res.data);
+
+    //ForEach loop to iterate array of "tab-egories" 
+    array.forEach(topic => 
+    {
+      //For each loop gets the (div-card) tab categories 
+      res.data.articles[topic].forEach(element =>
+      {
+        //Creates a new div card element
+        const newDiv = Card(element);
+
+        //Appends the new card div card elements to the DOM
+        document.querySelector(selector).appendChild(newDiv);
+      });
+    });
+  })
+
+  .catch((err) => 
+  {
+    console.log(err)
+  })
 }
 
 //Export statement

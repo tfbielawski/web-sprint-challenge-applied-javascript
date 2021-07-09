@@ -67,13 +67,16 @@ const tabsAppender = (selector) =>
   .get("https://lambda-times-api.herokuapp.com/topics")
 
   //If the promise is returned...
-  .then(res => 
+  .then((res) => 
   {
+
+    const arrayInfo = res.data.topics;
+
     //Query selector selects the selector and assigns to tabsShmabs
     const tabsShmabs = document.querySelector(selector);
 
     //Execute Tabs() function
-    tabsShmabs.appendChild(Tabs(res.data.topics));
+    tabsShmabs.appendChild(Tabs(arrayInfo));
   })
   
   //If there is an error...

@@ -77,7 +77,7 @@ const headerAppender = (selector) =>
   const sprintHeader = document.querySelector(selector);
     
   //Call the Header function, pass in arguments
-  sprintHeader.append(Header("Lambda Times", "11/11/1775", "1775"));
+  sprintHeader.append(Header("Marine Corps", "10 November 1775", "1775 degrees"));
 }
 
 //Export statement

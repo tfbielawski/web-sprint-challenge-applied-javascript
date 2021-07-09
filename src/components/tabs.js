@@ -69,14 +69,14 @@ const tabsAppender = (selector) =>
   //If the promise is returned...
   .then((res) => 
   {
-
+    //Apply the topics to arrayInfo
     const arrayInfo = res.data.topics;
 
-    //Query selector selects the selector and assigns to tabsShmabs
-    const tabsShmabs = document.querySelector(selector);
+    //Query selector selects the selector and assigns to tabs
+    const tabs = document.querySelector(selector);
 
     //Execute Tabs() function
-    tabsShmabs.appendChild(Tabs(arrayInfo));
+    tabs.appendChild(Tabs(arrayInfo));
   })
   
   //If there is an error...
@@ -89,6 +89,7 @@ const tabsAppender = (selector) =>
   //.finally runs regardless of outcome
   .finally(() => 
   {
+    //Log this to console
     console.log("Finally, it's done!");
   });
   

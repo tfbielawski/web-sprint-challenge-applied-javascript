@@ -126,10 +126,19 @@ const cardAppender = (selector) =>
     });
   })
 
+  //If there's an error
   .catch((err) => 
   {
+    //Log it to the console
     console.log(err)
   })
+
+  //.finally runs regardless of outcome
+  .finally(() => 
+  {
+    //Log this to console
+    console.log("Finally, it's done!");
+  });
 }
 
 //Export statement
